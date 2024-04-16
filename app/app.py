@@ -1,10 +1,13 @@
-from flask import Flask, jsonify, render_template, request, redirect, url_for
+from flask import Flask, render_template, request
 import mysql.connector as connector
 
 
 app = Flask(__name__)
 
 def MySQL():
+    '''
+    Container DB
+    '''
     connection = connector.connect(
         user = 'root',
         password = 'root',
@@ -12,6 +15,9 @@ def MySQL():
         port = '3306',
         database = 'flaskdb'
     )
+    '''
+    Local DB
+    '''
     # connection = connector.connect(
     #     user = 'chengyu',
     #     password = 'qwer1212',
@@ -54,4 +60,4 @@ def insert():
     return render_template('back.html')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port= '5001', debug=True)
+    app.run(host='0.0.0.0', port='5001', debug=True)
