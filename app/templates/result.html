@@ -93,21 +93,16 @@
 
 <body>
     <div class="container">
-        <h1>Simple Application with Flask and MYSQL</h1>
+        <h1>Results</h1>
         {% if messages|length != 0%}
             {% for message in messages %}
-                <p> Name: {{ message[1] }}, Message: {{ message[3] }} </p> 
+                <h2><span style="color: blue;">Name:</span> <span style="color: black;">{{ message[1] }}</span></h2>
+                <h2><span style="color: blue;">Message:</span> <span style="color: black;">{{ message[3] }}</span></h2>
             {% endfor %}
-            <h5>Submit new message</h5>
-            <form action="/insert" method="post">
-                <input type="text" name="name" placeholder="Enter your name">
-                <input type="text" name="password" placeholder="Query key">
-                <input type="text" name="new_message" placeholder="Enter a new message">
-                <input type="submit" value="Submit">
-            </form>
         {% else %}
                 <h2> No record matches! </h2>
         {% endif %}
+        <a href="/">Back to home page</a>
     </div>
 </body>
 

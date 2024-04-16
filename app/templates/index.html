@@ -93,11 +93,24 @@
 
 <body>
     <div class="container">
-        <h1>Enter Your Query:</h1>
+        <h1>Simple Application with Flask and MYSQL</h1>
+        <h2>Retrieve Existing Record</h2>
         <form action="/select" method="post">
             <input type="text" name="name" placeholder="Enter the name">
-            <input type="text" name="password" placeholder="Enter the query key">
+            <input type="text" name="password" placeholder="Enter the key">
             <input type="submit" value="Submit">
+        </form>
+        <br>
+        <br>
+        <h3>OR</h3>
+        <br>
+        <br>
+        <h2>Register New Record</h2>
+            <form action="/insert" method="post">
+                <input type="text" name="name" placeholder="Enter your name">
+                <input type="text" name="password" placeholder="Query key">
+                <input type="text" name="new_message" placeholder="Enter a new message">
+                <input type="submit" value="Submit">
         </form>
     </div>
 </body>

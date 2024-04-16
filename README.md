@@ -1,7 +1,12 @@
-## SQL Injection example
+## Build docker image
+`docker compose build`
 
-`name = ' OR 'a'='a';--` and `password = any`
+## Start container
+`docker compose up`
 
-`docker-compose up --build`
+The flask app will be available at **http://localhost:5001/**
 
-`docker-compose exec app bash`
+Optional: `docker compose exec app bash`
+
+## SQL injection examples
+1. `name = ' OR 'a'='a';--` and `password = any`

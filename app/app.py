@@ -44,7 +44,7 @@ def insert():
     cursor.execute("INSERT INTO messages (name, password, message) VALUES (%s, %s, %s)", (name, password, message))
     connection.commit()
     cursor.close()
-    return redirect(url_for('index'))
+    return render_template('back.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port= '5000', debug=True)
