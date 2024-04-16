@@ -95,9 +95,18 @@
     <div class="container">
         <h1>Results</h1>
         {% if messages|length != 0%}
+            <h3> 
+                <span style="color: red;">Total: {{ messages|length }} Record&#40;s&#41;</span>
+            </h3>
+            <hr>
             {% for message in messages %}
-                <h2><span style="color: blue;">Name:</span> <span style="color: black;">{{ message[1] }}</span></h2>
-                <h2><span style="color: blue;">Message:</span> <span style="color: black;">{{ message[3] }}</span></h2>
+                <h5>
+                    <span style="color: blue;">Name:</span> <span style="color: black;">{{ message[1] }}</span>
+                </h5>
+                <h5>
+                    <span style="color: blue;">Message:</span> <span style="color: black;">{{ message[3] }}</span>
+                </h5>
+                <hr>
             {% endfor %}
         {% else %}
                 <h2> No record matches! </h2>

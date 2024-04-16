@@ -12,6 +12,13 @@ def MySQL():
         port = '3306',
         database = 'flaskdb'
     )
+    # connection = connector.connect(
+    #     user = 'chengyu',
+    #     password = 'qwer1212',
+    #     host = 'localhost',
+    #     port = '3306',
+    #     database = 'flaskapp'
+    # )
     return connection
 
 @app.route('/')
@@ -47,4 +54,4 @@ def insert():
     return render_template('back.html')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port= '5000', debug=True)
+    app.run(host='0.0.0.0', port= '5001', debug=True)
