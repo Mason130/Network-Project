@@ -1,12 +1,17 @@
-## Build docker image
-`docker compose build`
+## Run with Docker
+- Build docker image: `docker compose build`
+- Start container: `docker compose up`
+- The flask app will be available at **http://localhost:5001/**
+- Optional: `docker compose exec app bash`
 
-## Start container
-`docker compose up`
+## Run locally
+- Change directory: `cd app`
+- Install dependencies: `pip install -r requirements.txt`
+- Run: `python app_sqlite.py`
+- The flask app will be available at **http://localhost:5001/**
 
-The flask app will be available at **http://localhost:5001/**
-
-Optional: `docker compose exec app bash`
+## Demo Site Hosted by [pythonanywhere](https://www.pythonanywhere.com/)
+**https://rogerluo233.pythonanywhere.com/**
 
 ## SQL injection examples
 1. `name = ' OR 'a'='a';--` and `password = any`
