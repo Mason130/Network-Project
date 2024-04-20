@@ -14,4 +14,5 @@
 **https://rogerluo233.pythonanywhere.com/**
 
 ## SQL injection examples
-1. `name = ' OR 'a'='a';--` and `password = any`
+1. [Dataset1](https://www.kaggle.com/datasets/syedsaqlainhussain/sql-injection-dataset); [Dataset2](https://www.kaggle.com/datasets/sajid576/sql-injection-dataset)
+2. `name = ' OR 'a'='a';--` and `password = any`
