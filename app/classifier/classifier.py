@@ -33,7 +33,7 @@ import re
 from collections import defaultdict, Counter
 
 # save final_vocab
-import pickle 
+import pickle
 with open('final_vocab.pkl', 'rb') as f:
     final_vocab = pickle.load(f)
 
@@ -79,7 +79,7 @@ class LSTMClassifier(nn.Module):
 
 def predict(raw_text, pad_length=100):
     # Instantiate the model, define loss function, and optimizer
-    token_size = 16214 # Adjust based on your vocabulary size
+    token_size = len(final_vocab) # Adjust based on your vocabulary size
     embedding_dim = 64  # Adjust based on your preference
     hidden_size = 128
     output_size = 2  # Number of classes
