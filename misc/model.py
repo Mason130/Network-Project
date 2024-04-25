@@ -181,12 +181,12 @@ token_size = len(final_vocab) # Adjust based on your vocabulary size
 embedding_dim = 64  # Adjust based on your preference
 hidden_size = 128
 output_size = 2  # Number of classes
-model = LSTMClassifier(token_size, embedding_dim, hidden_size, output_size)
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+print('Device: ', device)
+model = LSTMClassifier(token_size, embedding_dim, hidden_size, output_size).to(device)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print('Device: ', device)
-model.to(device)
+print(next(model.parameters()).is_cuda)
 
 '''Training loop'''
 epochs = 25
@@ -247,13 +247,14 @@ for epoch in range(epochs):
 '''model validation'''
 model.eval()
 with torch.no_grad():
-    for batch in next(iter(test_loader)):
+    for batch in test_loader:
         text, label = batch['text'], batch['label']
         text, label = text.to(device), label.to(device)
         outputs = model(text)
         _, predicted = torch.max(outputs.data, 1)
         print(text)
         print(f'Predicted: {predicted}, Actual: {label}')
+        break
 
 idx = 1232
 output = model(torch.tensor(X_test_encoded[idx]).to(device).unsqueeze(0))

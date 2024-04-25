@@ -30918,5 +30918,4 @@ DELETE FROM tomorrow,0
 SELECT wide ( s )  FROM west,0
 SELECT * FROM  ( SELECT slide FROM breath ) ,0
 SELECT TOP 3 * FROM race,0
-Mason';--,1
-Bubu';--,1
+SELECT * FROM table WHERE name = 'Aasdewrew';--',1
