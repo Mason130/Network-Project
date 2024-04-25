@@ -60,7 +60,7 @@ with open(vocab_file_path, 'rb') as f:
 class WAF:
     def __init__(self):
         self.model = LSTMClassifier(len(final_vocab), 64, 128, 2)
-        self.model.load_state_dict(torch.load(os.path.join(current_script_path, 'model_checkpoint_24.pth')))
+        self.model.load_state_dict(torch.load(os.path.join(current_script_path, 'model_checkpoint_24.pth'), map_location=torch.device('cpu')))
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.model.to(self.device)
         self.model.eval()
