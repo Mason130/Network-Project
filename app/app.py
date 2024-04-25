@@ -3,6 +3,7 @@ import sqlite3
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
+# current_script_path = os.path.dirname(__file__)
 
 @app.route('/')
 def index():
@@ -14,8 +15,8 @@ def select():
     name = request.form.get('name')
     password = request.form.get('password')
     # connect to Database
-    current_script_path = os.path.dirname(__file__)
-    connection = sqlite3.connect(os.path.join(current_script_path, 'flaskapp.db'))
+    # connection = sqlite3.connect(os.path.join(current_script_path, 'flaskapp.db'))
+    connection = sqlite3.connect('./flaskapp.db')
     cursor = connection.cursor()
     # cursor.execute('SELECT * FROM messages WHERE name = %s AND password = %s', (name, password)) # for MySQL
     '''Vulnerable query format'''
@@ -34,8 +35,8 @@ def insert():
     password = request.form.get('password')
     message = request.form.get('new_message')
     # connect to Database
-    current_script_path = os.path.dirname(__file__)
-    connection = sqlite3.connect(os.path.join(current_script_path, 'flaskapp.db'))
+    # connection = sqlite3.connect(os.path.join(current_script_path, 'flaskapp.db'))
+    connection = sqlite3.connect('./flaskapp.db')
     cursor = connection.cursor()
     try:
         query = "INSERT INTO messages (name, password, message) VALUES ('%s', '%s', '%s')" % (name, password, message)

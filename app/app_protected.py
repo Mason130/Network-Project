@@ -3,9 +3,8 @@ import sqlite3
 from flask import Flask, render_template, request
 import module.classifier as clf
 
-# initializa waf flask app
 app = Flask(__name__)
-
+# current_script_path = os.path.dirname(__file__)
 # initializa waf
 waf = clf.WAF()
 
@@ -33,8 +32,8 @@ def select():
         """
         return error_page
     # connect to Database
-    current_script_path = os.path.dirname(__file__)
-    connection = sqlite3.connect(os.path.join(current_script_path, 'flaskapp.db'))
+    # connection = sqlite3.connect(os.path.join(current_script_path, 'flaskapp.db'))
+    connection = sqlite3.connect('./flaskapp.db')
     cursor = connection.cursor()
     # cursor.execute('SELECT * FROM messages WHERE name = %s AND password = %s', (name, password)) # for MySQL
     '''Vulnerable query format'''
@@ -67,8 +66,8 @@ def insert():
         """
         return error_page
     # connect to Database
-    current_script_path = os.path.dirname(__file__)
-    connection = sqlite3.connect(os.path.join(current_script_path, 'flaskapp.db'))
+    # connection = sqlite3.connect(os.path.join(current_script_path, 'flaskapp.db'))
+    connection = sqlite3.connect('./flaskapp.db')
     cursor = connection.cursor()
     try:
         query = "INSERT INTO messages (name, password, message) VALUES ('%s', '%s', '%s')" % (name, password, message)
