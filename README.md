@@ -1,3 +1,4 @@
+# Project for UVA CS6501/ECE6502 (Network Security and Privacy), 24 Spring
 ## Run with Docker
 - Build & start docker image: `docker compose up --build`
 - The flask app will be available at **http://localhost:5001/**
